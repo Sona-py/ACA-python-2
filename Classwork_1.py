@@ -1,22 +1,22 @@
 def vowel(c):
     return c == 'a' or c == 'A' or c == 'e' or c == 'E' or c == 'i' or c == 'I' or c == 'o' or c == 'O' or c == 'u' or c == 'U'
 
-def reverse(str):
+def reverse(string):
     i=0
-    j=len(str)-1
+    j=len(string)-1
     while i<j:
-        if not vowel(str[i]):
+        if not vowel(string[i]):
             i+=1
             continue
-        if not vowel(str[j]):
+        if not vowel(string[j]):
             j-=1
             continue
-        str[i],str[j]=str[j],str[i]
+        string[i],string[j]=string[j],string[i]
         i+=1
         j-=1
-    return str
+    return string
 if __name__ == "__main__":
-    str = "america"
-    print(*reverse(list(str)), sep = "")
+    string = "america"
+    print(*reverse(list(string)), sep = "")
 
 
