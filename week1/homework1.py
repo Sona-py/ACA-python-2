@@ -1,0 +1,7 @@
+def all_positive(k,*args):
+    return sum((abs(x) for x in args),abs(k))>sum(args,k)
+
+def xor3(a,b,c):
+    return not((a and b and c) or not(a or b or c))
+
+
