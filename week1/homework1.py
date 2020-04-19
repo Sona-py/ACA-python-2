@@ -12,4 +12,6 @@ def only_names(l):
 
 discriminant = lambda a, b, c : b**2-4*a*c
 
+full_name=lambda x,y: x+' '+y
+
 
