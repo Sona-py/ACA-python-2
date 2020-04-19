@@ -4,4 +4,7 @@ def all_positive(k,*args):
 def xor3(a,b,c):
     return not((a and b and c) or not(a or b or c))
 
+def binary_sum(x:str,y:str):
+    return int(x,2)+int(y,2)
+
 
