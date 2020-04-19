@@ -10,4 +10,6 @@ def binary_sum(x:str,y:str):
 def only_names(l):
     return list(filter(lambda x: x != "", l))
 
+discriminant = lambda a, b, c : b**2-4*a*c
+
 
