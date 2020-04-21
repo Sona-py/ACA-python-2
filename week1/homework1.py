@@ -32,4 +32,26 @@ def mirror_string(a:str):
     return s.join(b)
 
 
+def bit_concat(l):
+    spl=[]
+    jon=[]
+
+    if 0<=len(l)<=4:
+       l1=['{:08b}'.format(l[i]) for i in range(len(l))]
+    lr=l1[::-1]
+
+    for i in lr:
+        spl.append([i[j:j + 2] for j in range(0, len(i),2)])
+
+    for i in range(len(spl)):
+        if spl[i][i]!='00':
+            jon.append((spl[i][i]))
+        elif spl[i][1]!='00':
+            jon.append((spl[i][1]))
+        elif spl[i][2]!='00':
+            jon.append((spl[i][2]))
+        else:
+            jon.append((spl[i][3]))
+    return int("".join(jon),2)
+print(bit_concat([3,12]))
 
