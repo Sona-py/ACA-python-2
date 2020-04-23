@@ -6,3 +6,6 @@ def is_polyndrome(word):
 
 def quick_or(l):
     return bool(sum(l))
+
+def expr_value(a):
+    return "{:.2f}".format(eval(a))
