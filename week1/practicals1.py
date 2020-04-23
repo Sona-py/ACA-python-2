@@ -7,6 +7,12 @@ def is_polyndrome(word):
 def quick_or(l):
     return bool(sum(l))
 
+def recursive_or(l):
+    y=list(map(lambda x: 1 if x else 0, l))
+    if not y:
+        return False
+    return bool(y[0]+sum(y[1:]))
+
 def expr_value(a):
     return "{:.2f}".format(eval(a))
 
