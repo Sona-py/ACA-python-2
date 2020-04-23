@@ -9,3 +9,8 @@ def quick_or(l):
 
 def expr_value(a):
     return "{:.2f}".format(eval(a))
+
+def implication3(a,b,c):
+    if a and b and not c:
+        return False
+    return True
