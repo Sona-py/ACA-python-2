@@ -48,3 +48,17 @@ def all_sums(a):
             pairs.append((i,j))
     pairs1 = [i for n, i in enumerate(pairs) if i[::-1] not in pairs[:n]]
     return pairs1
+
+
+from collections import defaultdict
+def duplicate_characters(s):
+    d = defaultdict(int)
+    dub=set()
+    for k in s:
+        d[k] = d[k]+1
+    for k in d:
+        if k!=' ' and d[k]>1:
+            dub.add(k)
+    if len(dub)==0:
+        return {}
+    return dub
