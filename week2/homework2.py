@@ -35,3 +35,14 @@ def sort_list(l,order='ascending'):
             return l
     elif all(isinstance(x, int) for x in l) and order=='descending':
         return sort_list(l,'ascending')[::-1]
+
+    
+def all_sums(a):
+    pairs=[]
+    n=list(range(1,a))
+    for i in n:
+        j=a-i
+        if j in n:
+            pairs.append((i,j))
+    pairs1 = [i for n, i in enumerate(pairs) if i[::-1] not in pairs[:n]]
+    return pairs1
