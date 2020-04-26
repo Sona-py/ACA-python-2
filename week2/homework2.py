@@ -1,5 +1,7 @@
-def compare_lists(a,b):
-    return len(set(a+b))==len(set(b))
+def compare_lists(a, b):
+    if len(a)==len(b):
+        return len(set(a + b)) == len(set(b))
+    return False
 
 def sort_list(l,order='ascending'):
     if all(isinstance(x, int) for x in l) and order=='ascending':
