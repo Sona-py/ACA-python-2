@@ -76,3 +76,11 @@ def bisect_position(a, x, lo=0, hi=None):
         else:
             lo = mid+1
     return lo
+
+
+from heapq import heappush, heappop
+def heapq(l,a):
+    h = [a]
+    for value in l:
+        heappush(h, value)
+    return [heappop(h) for i in range(len(h))]
