@@ -59,8 +59,6 @@ def duplicate_characters(s):
     for k in d:
         if k!=' ' and d[k]>1:
             dub.add(k)
-    if len(dub)==0:
-        return {}
     return dub
 
 
