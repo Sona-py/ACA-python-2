@@ -76,9 +76,19 @@ def bisect_position(a, x, lo=0, hi=None):
     return lo
 
 
-from heapq import heappush, heappop
-def heapq(l,a):
-    h = [a]
-    for value in l:
-        heappush(h, value)
-    return [heappop(h) for i in range(len(h))]
+def heapq(n, i):
+   l=n+[i]
+   for k in range(len(l)):
+       node1=int(2*k+1)
+       node2=int(2*k+2)
+       parent=int(node2/2-1)
+       try:
+           if l[node1]>=l[parent] and l[node2]>=l[parent]:
+               continue
+           elif l[node1]<l[parent]:
+               l[node1],l[parent]=l[parent],l[node1]
+           elif l[node2] < l[parent]:
+               l[node2], l[parent] = l[parent], l[node2]
+
+       except IndexError as error:
+           return l
