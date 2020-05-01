@@ -78,18 +78,18 @@ def bisect_position(a, x, lo=0, hi=None):
 
 
 def heapq(n, i):
-   l=n+[i]
-   for k in range(len(l)):
+   n.append(i)
+   for k in range(len(n)):
        node1=int(2*k+1)
        node2=int(2*k+2)
        parent=int(node2/2-1)
        try:
-           if l[node1]>=l[parent] and l[node2]>=l[parent]:
+           if n[node1]>=n[parent] and n[node2]>=n[parent]:
                continue
-           elif l[node1]<l[parent]:
-               l[node1],l[parent]=l[parent],l[node1]
-           elif l[node2] < l[parent]:
-               l[node2], l[parent] = l[parent], l[node2]
+           elif n[node1]<n[parent]:
+               n[node1],n[parent]=n[parent],n[node1]
+           elif n[node2] < n[parent]:
+               n[node2], n[parent] = n[parent], n[node2]
 
        except IndexError as error:
-           return l
+           return n
