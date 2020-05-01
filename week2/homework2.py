@@ -1,6 +1,7 @@
 def compare_lists(a, b):
     if len(a)==len(b):
-        return len(set(a + b)) == len(set(b))
+        if sum(a)==sum(b):
+            return len(set(a + b)) == len(set(b))
     return False
 
 def sort_list(l,order='ascending'):
