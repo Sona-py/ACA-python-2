@@ -13,3 +13,8 @@ import numpy as np
 def arr_repeat(x):
     x = np.array(x)
     return np.repeat(x,3,0)
+
+import numpy as np
+def arr_join(x):
+    x = np.array(x)
+    return np.tile(x,3)
