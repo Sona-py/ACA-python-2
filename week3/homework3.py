@@ -24,3 +24,7 @@ def arr_intersection(A,B):
     A = np.array(A)
     B = np.array(B)
     return np.intersect1d(A, B)
+
+import numpy as np
+def arr_random(x):
+    return np.round(np.random.uniform(low=5, high=10, size=x),2)
