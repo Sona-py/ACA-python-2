@@ -18,3 +18,9 @@ import numpy as np
 def arr_join(x):
     x = np.array(x)
     return np.tile(x,3)
+
+import numpy as np
+def arr_intersection(A,B):
+    A = np.array(A)
+    B = np.array(B)
+    return np.intersect1d(A, B)
