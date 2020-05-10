@@ -16,3 +16,14 @@ df = pd.read_csv('netflix_titles.csv')
 filtered=df[~(df['cast'].isnull()) & (df['release_year']>=2015)&((df['cast'].str.contains('Kevin Spacey'))|(df['cast'].str.contains('Leonardo DiCaprio')))]
 
 print(len(filtered. columns))
+
+
+import pandas as pd
+pd.set_option('display.width', 400)
+pd.set_option('display.max_columns', 15)
+df = pd.read_csv('netflix_titles.csv')
+
+number=df.groupby(['director']).count()['show_id']
+final=pd.merge(df,number,on='director')
+
+print(final)
