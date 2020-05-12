@@ -14,7 +14,7 @@ pd.set_option('display.max_columns', 15)
 df = pd.read_csv('netflix_titles.csv')
 
 filtered=df[~(df['cast'].isnull()) & (df['release_year']>=2015)&((df['cast'].str.contains('Kevin Spacey'))|(df['cast'].str.contains('Leonardo DiCaprio')))]
-print(len(filtered. columns))
+print(len(filtered. show_id))
 
 
 import pandas as pd
