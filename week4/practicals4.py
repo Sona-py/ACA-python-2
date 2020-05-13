@@ -34,3 +34,18 @@ pd.set_option('display.max_columns', 15)
 df = pd.read_csv('netflix_titles.csv')
 new_df = df.assign(cast=df.cast.str.split(',')).explode('cast')
 print(new_df)
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+pd.set_option('display.width', 400)
+pd.set_option('display.max_columns', 15)
+
+df = pd.read_csv('netflix_titles.csv', parse_dates = ['date_added'])
+filtered=df[~(df['cast'].isnull()) & ((df['cast'].str.contains('Antonio Banderas')))]
+ds = filtered.sort_values(by='date_added')
+ds['duration'] = ds['duration'].str.replace('min', '')
+ds['duration'] = ds['duration'].str.replace('1 Season', '200')
+ds['duration'] = pd.to_numeric(ds['duration'])
+plt.plot(ds['date_added'], ds['duration'], label='line')
+plt.show()
