@@ -1,3 +1,4 @@
+# Exercise#1
 import pandas as pd
 data = [['Sona','Kirakosyan','female','20-30','student'], ['Liana','Varosyan','female','20-30','student'], ['Artur','Mkrtchyan','male','20-30','student'],
         ['Ruzanna','Ordyan','female','50-60','student'],['Nairi','Hakobyan','male','20-30','tutor'], ['Jora','Karyan','male','20-30','student'],
@@ -8,6 +9,7 @@ columns = ['name', 'surname', 'sex', 'age group', 'status']
 df=pd.DataFrame(data = data, columns = columns)
 print(df)
 
+# Exercise#2
 import pandas as pd
 pd.set_option('display.width', 400)
 pd.set_option('display.max_columns', 15)
@@ -16,7 +18,7 @@ df = pd.read_csv('netflix_titles.csv')
 filtered=df[~(df['cast'].isnull()) & (df['release_year']>=2015)&((df['cast'].str.contains('Kevin Spacey'))|(df['cast'].str.contains('Leonardo DiCaprio')))]
 print(len(filtered. show_id))
 
-
+# Exercise#3
 import pandas as pd
 pd.set_option('display.width', 400)
 pd.set_option('display.max_columns', 15)
@@ -26,16 +28,18 @@ number=df.groupby(['director']).count()['show_id']
 final=pd.merge(df,number,on='director')
 print(final)
 
-
+# Exercise#4
 import pandas as pd
+import numpy as np
 
 pd.set_option('display.width', 400)
 pd.set_option('display.max_columns', 15)
 df = pd.read_csv('netflix_titles.csv')
 new_df = df.assign(cast=df.cast.str.split(',')).explode('cast')
+new_df.index = np.arange(1, len(new_df) + 1)
 print(new_df)
 
-
+# Exercise#5
 import pandas as pd
 import matplotlib.pyplot as plt
 pd.set_option('display.width', 400)
