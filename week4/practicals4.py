@@ -1,5 +1,6 @@
 # Exercise#1
 import pandas as pd
+import numpy as np
 data = [['Sona','Kirakosyan','female','20-30','student'], ['Liana','Varosyan','female','20-30','student'], ['Artur','Mkrtchyan','male','20-30','student'],
         ['Ruzanna','Ordyan','female','50-60','student'],['Nairi','Hakobyan','male','20-30','tutor'], ['Jora','Karyan','male','20-30','student'],
          ['Hayk','Sahakyan','male','20-30','student'],['Anahit','Kirakosyan','female','30-40','student'], ['Salbina','Alaverdyan','female','20-30','student'],
@@ -7,6 +8,7 @@ data = [['Sona','Kirakosyan','female','20-30','student'], ['Liana','Varosyan','f
 columns = ['name', 'surname', 'sex', 'age group', 'status']
 
 df=pd.DataFrame(data = data, columns = columns)
+df.index = np.arange(1, len(df) + 1)
 print(df)
 
 # Exercise#2
