@@ -72,3 +72,16 @@ plt.xticks(rotation=90)
 plt.plot(ds['date_added'], ds['show_id'], label='line')
 ds.plot(x='date_added', y='show_id', kind='bar', legend=False)
 plt.show()
+
+# Exercise#7
+import pandas as pd
+
+pd.set_option('display.width', 400)
+pd.set_option('display.max_columns', 15)
+
+df = pd.read_csv('netflix_titles.csv', parse_dates = ['date_added'])
+filtered=df[~(df['date_added'].isnull())]
+ds = filtered.sort_values(by='date_added')
+ds["difference"] = ds["date_added"].diff(1)
+
+print(ds)
