@@ -55,3 +55,20 @@ ds['duration'] = ds['duration'].str.replace('1 Season', '200')
 ds['duration'] = pd.to_numeric(ds['duration'])
 plt.plot(ds['date_added'], ds['duration'], label='line')
 plt.show()
+
+# Exercise#6
+import pandas as pd
+import matplotlib.pyplot as plt
+
+pd.set_option('display.width', 400)
+pd.set_option('display.max_columns', 15)
+
+df = pd.read_csv('netflix_titles.csv', parse_dates = ['date_added'])
+filtered=df[~(df['date_added'].isnull())]
+ds = filtered.sort_values(by='date_added')
+ds.groupby(['date_added']).count()
+ds['date_added'] = ds['date_added'].dt.strftime('%Y %B-%d')
+plt.xticks(rotation=90)
+plt.plot(ds['date_added'], ds['show_id'], label='line')
+ds.plot(x='date_added', y='show_id', kind='bar', legend=False)
+plt.show()
