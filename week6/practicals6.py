@@ -6,7 +6,7 @@ class Circle:
         self.color=color
         self.radius=radius
         assert isinstance(self.color,str), "Please input a string"
-        assert isinstance(self.radius, int or float), "Please input an integer or float"
+        assert isinstance(self.radius, (int,float)), "Please input an integer or float"
 
     def __str__(self):
         return self.color+" circle with radius "+ str(self.radius)
@@ -18,7 +18,7 @@ class Circle:
         return 2*pi*self.radius
 
     def __add__(self,x):
-        return Circle(self.circumference()+x.circumference())
+        return Circle('colored',self.circumference()+x.circumference())
 
 a=Circle('red',2)
 b=Circle('blue',1)
