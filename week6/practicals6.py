@@ -9,7 +9,7 @@ class Circle:
         assert isinstance(self.radius, int or float), "Please input an integer or float"
 
     def __str__(self):
-        return str(self.color)+" circle with radius "+ str(self.radius)
+        return self.color+" circle with radius "+ str(self.radius)
 
     def area(self):
         return pi*self.radius**2
