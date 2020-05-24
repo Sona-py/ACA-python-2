@@ -18,11 +18,15 @@ class Circle:
         return 2*pi*self.radius
 
     def __add__(self,x):
-        return 2*pi*self.radius + x
+        return Circle(self.circumference()+x.circumference())
 
 a=Circle('red',2)
+b=Circle('blue',1)
+print(a+b)
+
 str(a)
 print(a)
+
 
 
 
