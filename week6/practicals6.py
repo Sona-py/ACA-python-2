@@ -32,6 +32,7 @@ print(a)
 class RomanNumber:
     def __init__(self, roman_number):
         self.number = roman_number
+        assert isinstance(self.number,str), "Please input a string"
 
     def get_num(self):
         return self.number
@@ -148,6 +149,7 @@ class Polygon:
     def __init__(self, n_of_sides):
 
         self.n = n_of_sides
+        assert isinstance(self.n,int), "Please input an integer"
         assert self.n > 0, "Input a positive number"
         self.sides = list()
 
