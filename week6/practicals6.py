@@ -76,29 +76,27 @@ class RomanNumber:
     #     return RomanNumber(self.convert_to_roman(self.convert_to_num() + x.convert_to_num()))
 
     def __add__(self,x):
+        assert self.convert_to_roman(self.convert_to_num()) == self.get_num(), "Invalid roman number"
         return RomanNumber(self.convert_to_roman(self.convert_to_num() + x.convert_to_num()))
 
     def __sub__(self,x):
+        assert self.convert_to_roman(self.convert_to_num()) == self.get_num(), "Invalid roman number"
         return RomanNumber(self.convert_to_roman(self.convert_to_num() - x.convert_to_num()))
 
     def __mul__(self,x):
+        assert self.convert_to_roman(self.convert_to_num()) == self.get_num(), "Invalid roman number"
         return RomanNumber(self.convert_to_roman(self.convert_to_num() * x.convert_to_num()))
 
     def __floordiv__(self,x):
+        assert self.convert_to_roman(self.convert_to_num()) == self.get_num(), "Invalid roman number"
         return RomanNumber(self.convert_to_roman(self.convert_to_num() // x.convert_to_num()))
 
     def __pow__(self,x):
+        assert self.convert_to_roman(self.convert_to_num()) == self.get_num(), "Invalid roman number"
         return RomanNumber(self.convert_to_roman(self.convert_to_num() ** x.convert_to_num()))
 
-    def check(self):
-        assert self.convert_to_roman(self.convert_to_num())==self.get_num(), "Invalid roman number"
-
-
-
-a = RomanNumber("IX")
+a = RomanNumber("IIX")
 b = RomanNumber("X")
-a.check()
-b.check()
 print(str(a+b))
 
 
