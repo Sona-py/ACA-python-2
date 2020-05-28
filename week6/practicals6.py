@@ -28,6 +28,80 @@ str(a)
 print(a)
 
 
+# problem2
+class RomanNumber:
+    def __init__(self, roman_number):
+        self.number = roman_number
+
+    def get_num(self):
+        return self.number
+
+    def set_num(self, num1):
+        self.number = num1
+
+    def convert_to_num(self):
+        num_dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        result = 0
+        for key, value in enumerate(self.number):
+            if (key + 1) == len(self.number) or num_dict[value] >= num_dict[self.number[key + 1]]:
+                result += num_dict[value]
+            else:
+                result -= num_dict[value]
+        return result
+
+    def convert_to_roman(self, num):
+        val = [
+            1000, 900, 500, 400,
+            100, 90, 50, 40,
+            10, 9, 5, 4,
+            1
+        ]
+        syb = [
+            "M", "CM", "D", "CD",
+            "C", "XC", "L", "XL",
+            "X", "IX", "V", "IV",
+            "I"
+        ]
+        roman_num = ''
+        i = 0
+
+        while num > 0:
+            for _ in range(num // val[i]):
+                roman_num += syb[i]
+                num -= val[i]
+            i += 1
+        return roman_num
+
+    # def add(self, x):
+    #     return RomanNumber(self.convert_to_roman(self.convert_to_num() + x.convert_to_num()))
+
+    def __add__(self,x):
+        return RomanNumber(self.convert_to_roman(self.convert_to_num() + x.convert_to_num()))
+
+    def __sub__(self,x):
+        return RomanNumber(self.convert_to_roman(self.convert_to_num() - x.convert_to_num()))
+
+    def __mul__(self,x):
+        return RomanNumber(self.convert_to_roman(self.convert_to_num() * x.convert_to_num()))
+
+    def __floordiv__(self,x):
+        return RomanNumber(self.convert_to_roman(self.convert_to_num() // x.convert_to_num()))
+
+    def __pow__(self,x):
+        return RomanNumber(self.convert_to_roman(self.convert_to_num() ** x.convert_to_num()))
+
+    def check(self):
+        assert self.convert_to_roman(self.convert_to_num())==self.get_num(), "Invalid roman number"
+
+
+
+a = RomanNumber("IX")
+b = RomanNumber("X")
+a.check()
+b.check()
+print(str(a+b))
+
+
 # problem3
 class Person:
     def __init__(self, name, last_name, age, gender, student, password, filename):
