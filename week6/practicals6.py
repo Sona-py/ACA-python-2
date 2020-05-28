@@ -145,5 +145,52 @@ p1=Person("h","n",4,"female",True,"kkk","filename")
 p1.Read_file("filename")
 
 
+# problem4
+class Polygon:
+    def __init__(self, n_of_sides):
+
+        self.n = n_of_sides
+        assert self.n > 0, "Input a positive number"
+        self.sides = list()
+
+    def input_sides(self, sides):
+        self.sides = sides
+        assert self.n == len(self.sides), "Incorrect input"
+        print(self.sides)
+
+    def disp_sides(self):
+        for i in range(self.n):
+            print("Side", i + 1, "is", self.sides[i])
+
+    def get_perimeter(self):
+        return sum(self.sides)
+
+class Quadrilateral(Polygon):
+    def __init__(self):
+      super().__init__(4)
+
+class Rectangle(Quadrilateral):
+    #     def __init__(self):
+    #         super().__init__()
+
+    def input_sides(self, s):
+        super().input_sides(s * 2)
+
+
+    def get_area(self):
+        return self.sides[0] * self.sides[1]
+
+
+class Square(Rectangle):
+    #     def __init__(self):
+    #         super().__init__()
+
+    def input_sides(self, s):
+        super().input_sides(s * 2)
+
+
+S = Square()
+S.input_sides([1])
+print(S.get_area())
 
 
