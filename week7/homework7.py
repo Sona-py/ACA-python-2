@@ -33,7 +33,19 @@ for key, value in recursive_items(pyData):
         print(key)
         
 #problem 3
+import json
+class Vehicle:
+    def __init__(self, name, engine, price):
+        self.name = name
+        self.engine = engine
+        self.price = price
 
+vehicle = Vehicle("Toyota Rav4", "2.5L", 32000)
+
+jsonStr = json.dumps(vehicle.__dict__, indent=4)
+print(jsonStr)
+
+#problem 4
 
 
 
