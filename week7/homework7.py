@@ -59,7 +59,14 @@ Vehicle = json.loads(jsformat, object_hook=customStudentDecoder)
 
 print(Vehicle.name)
 
+#problem 5
 
+import xml.etree.ElementTree as ET
+tree = ET.parse('movies.xml')
+root = tree.getroot()
+for child in root:
+    print(child.tag, child.attrib)
+print(root.tag, root.attrib)
 
 
 
