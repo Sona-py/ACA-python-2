@@ -47,7 +47,17 @@ print(jsonStr)
 
 #problem 4
 
+import json
+from collections import namedtuple
+from json import JSONEncoder
 
+def customStudentDecoder(jsformat):
+    return namedtuple('X', jsformat.keys())(*jsformat.values())
+
+jsformat = '{"name":"Toyota Rav4", "engine": "2.5L", "price": 32000}'
+Vehicle = json.loads(jsformat, object_hook=customStudentDecoder)
+
+print(Vehicle.name)
 
 
 
