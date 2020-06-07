@@ -69,6 +69,23 @@ for child in root:
 print(root.tag, root.attrib)
 
 
+#problem 10
+
+import xml.etree.ElementTree as ET
+tree = ET.parse('movies.xml')
+root = tree.getroot()
+
+for form in root.findall("./genre/decade/movie/format"):
+    if form.attrib['multiple'] == 'False':
+        form.set('multiple','No')
+    if "," in form.text:
+        form.set('multiple','Yes')
+    else:
+        form.set('multiple', 'No')
+
+
+
+tree.write('movies1.xml')
 
 
 
